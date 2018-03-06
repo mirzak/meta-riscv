@@ -7,7 +7,7 @@ LIC_FILES_CHKSUM = "file://${S}/COPYING;md5=d7810fab7487fb0aad327b76f1be7cd7"
 COMPATIBLE_MACHINE = "(qemuriscv64|riscv64)"
 
 LINUX_KERNEL_TYPE ?= "standard"
-PV_append = "-rc2"
+PV_append = "-rc3"
 # KMETA ?= ""
 KBRANCH ?= "${BRANCH}"
 KMACHINE ?= "${MACHINE}"
@@ -26,12 +26,12 @@ KERNEL_ALT_IMAGETYPE = ""
 
 inherit kernel siteinfo
 
-BRANCH = "riscv-for-submission-v9"
+BRANCH = "for-linus"
 
-SRCREV = "4a8451edde0d6ebd877f2cc0585667ec1178f89e"
-SRCREV_machine = "4a8451edde0d6ebd877f2cc0585667ec1178f89e"
+SRCREV = "ab4af60534107c55b00fa462eca0385dcef92384"
+SRCREV_machine = "ab4af60534107c55b00fa462eca0385dcef92384"
 
-SRC_URI = "git://github.com/riscv/riscv-linux.git;branch=${BRANCH} \
+SRC_URI = "git://git.kernel.org/pub/scm/linux/kernel/git/palmer/riscv-linux.git;branch=${BRANCH} \
            file://0001-Use-compiler-to-find-libgcc.patch \
            file://sections.cfg \
            file://defconfig"

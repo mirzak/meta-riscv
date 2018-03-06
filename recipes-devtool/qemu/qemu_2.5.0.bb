@@ -1,9 +1,7 @@
 require recipes-devtools/qemu/qemu.inc
 
-SRC_URI = "gitsm://github.com/riscv/riscv-qemu.git;destsuffix=${S};branch=master \
-           file://0001-Replace-struct-ucontext-with-ucontext_t-type.patch \
-          "
-SRCREV = "ff36f2f77ec3e6a6211c63bfe1707ec057b12f7d"
+SRC_URI = "gitsm://github.com/riscv/riscv-qemu.git;destsuffix=${S};"
+SRCREV = "cd2c21d70361f6887e265860c4f0dbb49ad323ca"
 
 SRC_URI_remove_class-native = "\
     file://fix-libcap-header-issue-on-some-distro.patch \
