@@ -19,7 +19,7 @@ INHIBIT_PACKAGE_STRIP = "1"
 
 S = "${WORKDIR}/git"
 
-do_configure[depends] = "virtual/kernel:do_deploy"
+DEPENDS = "virtual/kernel"
 
 do_install_prepend () {
         install -d ${D}${datadir}/riscv-pk
@@ -45,7 +45,6 @@ do_deploy_append_sifive-unleashed() {
 }
 
 addtask deploy before do_build after do_install
-do_deploy[depends] = "${PN}:do_install"
 
 SECURITY_CFLAGS = "${SECURITY_NOPIE_CFLAGS}"
 SECURITY_LDFLAGS = ""
