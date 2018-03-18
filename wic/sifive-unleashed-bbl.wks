@@ -1,6 +1,19 @@
-# short-description: Create SD card image with embedded bbl.bin
+# short-description: Create SD card image with a boot partition
+# long-description:
+# Create an image that can be written onto a SD card using dd for use
+# with SiFive Unleashed board.
+#
+# It uses bbl as bootloader
+#
+# The disk layout used is:
+#  - --------- --------------
+# | | bbl     |    rootfs   |
+#  - --------- --------------
+# ^ ^         ^
+# | |         |
+# 0 1kiB      4MiB + rootfs + IMAGE_EXTRA_SPACE (default 10MiB)
 
-part bbl --source rawcopy --sourceparams="file=bbl.bin" --ondisk mmcblk --no-table --align 1 --use-uuid --fsuuid 2e54b353-1271-4842-806f-e436d6af6985
+part /boot --source bootimg-partition --ondisk mmcblk --fstype=vfat --label boot --active --align 1 --use-uuid --fsuuid 2e54b353-1271-4842-806f-e436d6af6985
 part / --source rootfs --ondisk mmcblk --fstype=ext4 --label root --align 4096 --size 1G
 
 bootloader --ptable msdos
