@@ -48,8 +48,3 @@ addtask deploy before do_build after do_install
 
 SECURITY_CFLAGS = "${SECURITY_NOPIE_CFLAGS}"
 SECURITY_LDFLAGS = ""
-
-do_configure[nostamp] = "1"
-do_compile[nostamp] = "1"
-do_install[nostamp] = "1"
-do_deploy[nostamp] = "1"
